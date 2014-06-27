@@ -1,0 +1,19 @@
+.rank-main {
+  width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.rank-choice {
+  width: 400px;
+  margin: auto;
+}
+
+.clear {
+  clear: both;
+}
+
+
+body {
+  padding-top: 60px;
+}

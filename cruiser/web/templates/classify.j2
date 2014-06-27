@@ -1,0 +1,28 @@
+{% extends "base.j2" %}
+
+{% block head %}
+  <title>Cruiser Classifier</title>
+{% endblock %}
+
+{% block body %}
+  Remaining: <span id="remaining">0</span>
+  <div class="row">
+    <div class="col-md-1">
+      <span>NO (A)</span>
+    </div>
+    <div class="col-md-10 text-center">
+      <br>
+      <img id="main-img" data-id="" src="">
+      <br>
+      <span id="text"></span>
+    </div>
+    <div class="col-md-1">
+      <span>YES (S)</span>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{url_for('static', filename='classifier.js')}}"></script>
+{% endblock %}

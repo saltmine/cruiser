@@ -1,0 +1,42 @@
+{% extends "base.j2" %}
+
+{% block head %}
+  <title>Cruiser Ranker</title>
+{% endblock %}
+
+{% block body %}
+  <div class="rank-main">
+    <div>
+      Click the winner.  (Or press 'A' for left, 'S' for right)
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <img id="img-left" data-id="" src="">
+      </div>
+      <div class="col-md-6 text-center">
+        <img id="img-right" data-id="" src="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <span id="text-left"></span>
+      </div>
+      <div class="col-md-6 text-center">
+        <span id="text-right"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <a id="del-left" href="#">remove this product</a>
+      </div>
+      <div class="col-md-6 text-center">
+        <a id="del-right" href="#">remove this product</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{url_for('static', filename='rank.js')}}"></script>
+{% endblock %}

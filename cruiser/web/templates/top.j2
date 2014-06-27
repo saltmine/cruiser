@@ -1,0 +1,37 @@
+{% extends "base.j2" %}
+
+{% block head %}
+  <script src="{{url_for('static', filename='top.js')}}"></script>
+  <title>Cruiser Top Rated</title>
+{% endblock %}
+
+{% block body %}
+  {% if offset-50 >= 0%}
+  <a href="{{url_for("top_products", offset=offset-50)}}">previous</a>
+  {% endif %}
+  <a href="{{url_for("top_products", offset=offset+50)}}">next</a>
+  <br>
+  <br>
+  <br>
+  <table>
+  {% for p, prod_score in top_prods%}
+    <tr>
+      <td>
+        {{offset+loop.index}}
+        <br>
+        score: {{prod_score}}
+        <br>
+        <a class="del-img" href="#" data-url="{{p.product_id}}">remove</a>
+      </td>
+      <td><img src="{{p.image_url}}"/></td>
+    </tr>
+  {%endfor%}
+  </table> 
+  <br>
+  <br>
+  <br>
+  {% if offset-50 >= 0%}
+  <a href="{{url_for("top_products", offset=offset-50)}}">previous</a>
+  {% endif %}
+  <a href="{{url_for("top_products", offset=offset+50)}}">next</a>
+{% endblock %}
