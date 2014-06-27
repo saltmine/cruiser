@@ -1,0 +1,14 @@
+{% macro product_card(class_name) %}
+<div class="pc {{class_name}}">
+  <div class="main-img">
+    <img class="{{class_name}} cruiser-img" data-id="" src="{{url_for('static', filename='loading.gif')}}"/>
+  </div>
+  <div class="descr">
+      <strong class="{{class_name}} cruiser-text">
+      </strong>
+  </div>
+  <div class="cruiser-link">
+      <a data-toggle="collapse" href="#" class="open-code {{class_name}} cruiser-link">See it on Keep</a>
+  </div>
+</div>
+{%endmacro%}
