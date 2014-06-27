@@ -3,7 +3,7 @@ import requests
 
 from ..models import images
 
-img_replace = [('t_post_grid_progressive', 'c_pad,h_600,w_400')]
+img_replace = [('t_post_grid_progressive', 'f_png,fl_png8,c_pad,h_500,w_300')]
 
 
 def crawl_page(url_template, page_number=None):
@@ -20,5 +20,5 @@ def crawl_page(url_template, page_number=None):
     if img_url and prod_id:
       for r in img_replace:
         img_url = img_url.replace(r[0], r[1])
-      keep_url  = "http://keep.com/slug/x/%s" % prod_id
+      keep_url  = "http://keep.com/slug/k/%s" % prod_id
       images.create_to_classify(prod_id, img_url, keep_url, text)

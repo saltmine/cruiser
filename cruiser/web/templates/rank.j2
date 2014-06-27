@@ -1,4 +1,5 @@
 {% extends "base.j2" %}
+{% import "macros.j2" as macros %}
 
 {% block head %}
   <title>Cruiser Ranker</title>
@@ -6,24 +7,12 @@
 
 {% block body %}
   <div class="rank-main">
-    <div>
-      Click the winner.  (Or press 'A' for left, 'S' for right)
-    </div>
-
     <div class="row">
-      <div class="col-md-6 text-center">
-        <img id="img-left" data-id="" src="">
+      <div class="col-md-6">
+        {{ macros.product_card("card-left") }}
       </div>
-      <div class="col-md-6 text-center">
-        <img id="img-right" data-id="" src="">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 text-center">
-        <span id="text-left"></span>
-      </div>
-      <div class="col-md-6 text-center">
-        <span id="text-right"></span>
+      <div class="col-md-6">
+        {{ macros.product_card("card-right") }}
       </div>
     </div>
     <div class="row">

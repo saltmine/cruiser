@@ -5,25 +5,28 @@ $(document).ready(function() {
 $(document).keypress(function(e){
   if (e.keyCode == 97){
     //A, fail it
+    $('.pc.classify-card').addClass('pc-reject');
     classifyImage(0);
   }
   else if (e.keyCode == 115){
     //S, pass it
+    $('.pc.classify-card').addClass('pc-accept');
     classifyImage(1);
   }
 });
 
 
 function classifyImage(keep) {
-  if ($('#main-img').attr('data-id') != '') {
+  if ($('.cruiser-img.classify-card').attr('data-id') != '') {
     $.ajax({url:"/save_classify/",
             data: {"save_image": keep,
-                   "to_classify_id": $('#main-img').attr('data-id')},
+                   "to_classify_id": $('.cruiser-img.classify-card').attr('data-id')},
             success: loadImage
     });
-    $('#main-img').attr('src', '/static/loading.gif');
-    $('#main-img').attr('data-id', '');
-    $('#text').text('');
+    $('.cruiser-img.classify-card').attr('src', '/static/loading.gif');
+    $('.cruiser-img.classify-card').attr('data-id', '');
+    $('.cruiser-text.classify-card').text('');
+    $('.cruiser-link.classify-card').attr('href', '#');
   }
 };
 
@@ -31,10 +34,13 @@ function classifyImage(keep) {
 function loadImage() {
   $.ajax({url:"/get_classify/",
           success:function(result){
-            $('#main-img').attr('src', result.to_classify.image_url);
-            $('#main-img').attr('data-id', result.to_classify.product_id);
-            $('#text').text(result.to_classify.text);
+            $('.cruiser-img.classify-card').attr('src', result.to_classify.image_url);
+            $('.cruiser-img.classify-card').attr('data-id', result.to_classify.product_id);
+            $('.cruiser-text.classify-card').text(result.to_classify.text);
+            $('.cruiser-link.classify-card').attr('href', result.to_classify.link);
             $('#remaining').text(result.to_classify_count);
+            $('.pc.classify-card').removeClass('pc-accept');
+            $('.pc.classify-card').removeClass('pc-reject');
           }
   });
 };

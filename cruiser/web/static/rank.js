@@ -5,11 +5,13 @@ $(document).ready(function() {
 $(document).keypress(function(e){
   if (e.keyCode == 97){
     //A, pick left
-    rankImages($('#img-left').attr('data-id'), $('#img-right').attr('data-id'));
+    $('.pc.card-left').addClass('pc-selected');
+    rankImages($('.cruiser-img.card-left').attr('data-id'), $('.cruiser-img.card-right').attr('data-id'));
   }
   else if (e.keyCode == 115){
     //S, pick right
-    rankImages($('#img-right').attr('data-id'), $('#img-left').attr('data-id'));
+    $('.pc.card-right').addClass('pc-selected');
+    rankImages($('.cruiser-img.card-right').attr('data-id'), $('.cruiser-img.card-left').attr('data-id'));
   }
 });
 
@@ -29,22 +31,22 @@ $("#del-right").click(function(e){
   clearImages();
 });
 
-$("#img-left").click(function(e){
-  rankImages($('#img-left').attr('src'), $('#img-right').attr('src'));
+$(".cruiser-img.card-left").click(function(e){
+  $('.pc.card-left').addClass('pc-selected');
+  rankImages($('.cruiser-img.card-left').attr('src'), $('.cruiser-img.card-right').attr('src'));
 });
 
-$("#img-right").click(function(e){
-  rankImages($('#img-right').attr('src'), $('#img-left').attr('src'));
+$(".cruiser-img.card-right").click(function(e){
+  $('.pc.card-right').addClass('pc-selected');
+  rankImages($('.cruiser-img.card-right').attr('src'), $('.cruiser-img.card-left').attr('src'));
 });
 
 
 function clearImages(){
-  $('#img-left').attr('src', '/static/loading.gif');
-  $('#img-right').attr('src', '/static/loading.gif');
-  $('#img-left').attr('data-id', '');
-  $('#img-right').attr('data-id', '');
-  $('#text-left').text('');
-  $('#text-right').text('');
+  $('.cruiser-img').attr('src', '/static/loading.gif');
+  $('.cruiser-img').attr('data-id', '');
+  $('.cruiser-text').text('');
+  $('.cruiser-link').attr('href', '#');
 };
 
 
@@ -61,12 +63,15 @@ function rankImages(winner, loser) {
 function loadImages() {
   $.ajax({url:"/get_comparison/",
           success:function(result){
-            $('#img-left').attr('src', result.a.image_url);
-            $('#img-right').attr('src', result.b.image_url);
-            $('#img-left').attr('data-id', result.a.product_id);
-            $('#img-right').attr('data-id', result.b.product_id);
-            $('#text-left').text(result.a.text);
-            $('#text-right').text(result.b.text);
+            $('.cruiser-img.card-left').attr('src', result.a.image_url);
+            $('.cruiser-img.card-right').attr('src', result.b.image_url);
+            $('.cruiser-img.card-left').attr('data-id', result.a.product_id);
+            $('.cruiser-img.card-right').attr('data-id', result.b.product_id);
+            $('.cruiser-text.card-left').text(result.a.text);
+            $('.cruiser-text.card-right').text(result.b.text);
+            $('.cruiser-link.card-left').attr('href', result.a.link);
+            $('.cruiser-link.card-right').attr('href', result.b.link);
+            $('.pc-selected').removeClass('pc-selected');
           }
   });
 };

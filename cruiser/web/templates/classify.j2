@@ -1,20 +1,18 @@
 {% extends "base.j2" %}
+{% import "macros.j2" as macros %}
 
 {% block head %}
   <title>Cruiser Classifier</title>
 {% endblock %}
 
 {% block body %}
-  Remaining: <span id="remaining">0</span>
+  <span class="hide"> Remaining: <span id="remaining">0</span></span>
   <div class="row">
     <div class="col-md-1">
       <span>NO (A)</span>
     </div>
-    <div class="col-md-10 text-center">
-      <br>
-      <img id="main-img" data-id="" src="">
-      <br>
-      <span id="text"></span>
+    <div class="col-md-5 text-center">
+      {{macros.product_card("classify-card")}}
     </div>
     <div class="col-md-1">
       <span>YES (S)</span>

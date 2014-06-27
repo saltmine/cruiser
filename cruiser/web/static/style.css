@@ -17,3 +17,51 @@
 body {
   padding-top: 60px;
 }
+
+
+.pc {
+    background: #f0f0f0;
+    padding: 30px 0;
+    border: 1px solid;
+    border-color: #2c3e50;
+    border-radius: 20px;
+    position: relative;
+}
+
+.pc .main-img {
+    height: 500px;
+}
+
+.pc .descr {
+    height: 80px;
+    color: #999;
+    padding: 5px, 10px; 
+}
+ 
+.pc .ends {
+    padding: 0 15px;
+    color: #f1c40f;
+    margin-bottom: 10px;
+}
+
+.pc .cruiser-link {
+    min-height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 20px 15px;
+    background: #2c3e50;
+}
+
+.pc-selected {
+    border: 10px solid #2c3e50;
+}
+
+.pc-accept {
+    border: 10px solid green;
+}
+
+.pc-reject {
+    border: 10px solid red;
+}
