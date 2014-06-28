@@ -6,11 +6,19 @@ $(document).keypress(function(e){
   if (e.keyCode == 97){
     //A, fail it
     $('.pc.classify-card').addClass('pc-reject');
+    setTimeout(function() {
+      $('.pc.classify-card').removeClass('pc-accept');
+      $('.pc.classify-card').removeClass('pc-reject');
+    }, 200);
     classifyImage(0);
   }
   else if (e.keyCode == 115){
     //S, pass it
     $('.pc.classify-card').addClass('pc-accept');
+    setTimeout(function() {
+      $('.pc.classify-card').removeClass('pc-accept');
+      $('.pc.classify-card').removeClass('pc-reject');
+    }, 200);
     classifyImage(1);
   }
 });
@@ -39,8 +47,6 @@ function loadImage() {
             $('.cruiser-text.classify-card').text(result.to_classify.text);
             $('.cruiser-link.classify-card').attr('href', result.to_classify.link);
             $('#remaining').text(result.to_classify_count);
-            $('.pc.classify-card').removeClass('pc-accept');
-            $('.pc.classify-card').removeClass('pc-reject');
           }
   });
 };

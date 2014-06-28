@@ -26,6 +26,11 @@ body {
     border-color: #2c3e50;
     border-radius: 20px;
     position: relative;
+    -webkit-transition: all .2s
+}
+
+.pc-container {
+    -webkit-transition: all .2s
 }
 
 .pc .main-img {
@@ -56,12 +61,28 @@ body {
 
 .pc-selected {
     border: 10px solid #2c3e50;
+    padding-bottom: 20px;
+}
+
+
+.pc-selected >.pc-container {
+    margin-top: -9px;
 }
 
 .pc-accept {
     border: 10px solid green;
+    padding-bottom: 18px;
+}
+
+.pc-accept >.pc-container {
+    margin-top: -9px;
 }
 
 .pc-reject {
     border: 10px solid red;
+    padding-bottom: 18px;
+}
+
+.pc-reject >.pc-container {
+    margin-top: -9px;
 }
