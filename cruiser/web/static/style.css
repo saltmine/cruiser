@@ -1,5 +1,5 @@
 .rank-main {
-  width: 800px;
+  width: 1000px;
   margin: auto;
   text-align: center;
 }
@@ -85,4 +85,9 @@ body {
 
 .pc-reject >.pc-container {
     margin-top: -9px;
+}
+
+.cruiser-img {
+  max-width: 450px;
+  max-height: 500px;
 }

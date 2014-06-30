@@ -3,7 +3,7 @@ import requests
 
 from ..models import images
 
-img_replace = [('t_post_grid_progressive', 'f_png,fl_png8,c_pad,h_500,w_300')]
+img_replace = [('t_post_grid_progressive', 't_post_large')]
 
 
 def crawl_page(url_template, page_number=None):
